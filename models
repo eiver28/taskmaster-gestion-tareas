@@ -1,0 +1,14 @@
+from enum import Enum, auto
+
+class Prioridad(Enum):
+    BAJA = auto()
+    MEDIA = auto()
+    ALTA = auto()
+    URGENTE = auto()
+
+class Estado(Enum):
+    PENDIENTE = auto()
+    EN_PROGRESO = auto()
+    COMPLETADA = auto()
+    CANCELADA = auto()
+
