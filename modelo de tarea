@@ -1,0 +1,29 @@
+Modelo de Tarea (src/models/tarea.py)
+python
+from datetime import datetime
+from .constantes import Prioridad, Estado
+
+class Tarea:
+    def __init__(self, 
+                 titulo: str, 
+                 descripcion: str, 
+                 prioridad: Prioridad = Prioridad.BAJA):
+        self.id = None
+        self.titulo = titulo
+        self.descripcion = descripcion
+        self.prioridad = prioridad
+        self.estado = Estado.PENDIENTE
+        self.fecha_creacion = datetime.now()
+        self.fecha_actualizacion = datetime.now()
+        self.fecha_limite = None
+
+    def cambiar_estado(self, nuevo_estado: Estado):
+        self.estado = nuevo_estado
+        self.fecha_actualizacion = datetime.now()
+
+    def cambiar_prioridad(self, nueva_prioridad: Prioridad):
+        self.prioridad = nueva_prioridad
+        self.fecha_actualizacion = datetime.now()
+
+    def __str__(self):
+        return f"Tarea: {self.titulo} - Prioridad: {self.prioridad.name} - Estado: {self.estado.name}"
