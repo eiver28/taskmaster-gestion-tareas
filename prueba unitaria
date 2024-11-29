@@ -1,0 +1,29 @@
+Pruebas Unitarias (tests/test_tareas.py)
+python
+import unittest
+from src.controllers.gestor_tareas import GestorTareas
+from src.models.constantes import Prioridad, Estado
+
+class TestGestorTareas(unittest.TestCase):
+    def setUp(self):
+        self.gestor = GestorTareas()
+
+    def test_crear_tarea(self):
+        tarea = self.gestor.crear_tarea("Prueba", "Descripción de prueba")
+        self.assertIsNotNone(tarea.id)
+        self.assertEqual(tarea.titulo, "Prueba")
+
+    def test_listar_tareas(self):
+        self.gestor.crear_tarea("Tarea 1", "Descripción 1")
+        self.gestor.crear_tarea("Tarea 2", "Descripción 2")
+        tareas = self.gestor.listar_tareas()
+        self.assertEqual(len(tareas), 2)
+
+    def test_eliminar_tarea(self):
+        tarea = self.gestor.crear_tarea("Eliminar", "Tarea a eliminar")
+        resultado = self.gestor.eliminar_tarea(tarea.id)
+        self.assertTrue(resultado)
+
+if __name__ == '__main__':
+    unittest.main()
+    
