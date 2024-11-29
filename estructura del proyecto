@@ -1,1 +1,23 @@
 
+5. Estructura de Proyecto
+```
+taskmaster-gestion-tareas/
+│
+├── src/
+│   ├── models/
+│   │   ├── tarea.py
+│   │   └── usuario.py
+│   │
+│   ├── controllers/
+│   │   ├── gestor_tareas.py
+│   │   └── autenticacion.py
+│   │
+│   └── views/
+│       └── interfaz_cli.py
+│
+├── tests/
+├── database/
+├── README.md
+├── requirements.txt
+└── .gitignore
+```
