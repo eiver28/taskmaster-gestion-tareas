@@ -12,3 +12,4 @@ class Estado(Enum):
     COMPLETADA = auto()
     CANCELADA = auto()
 
+
